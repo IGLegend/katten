@@ -21,18 +21,25 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late List data;
-  List imagesUrl = [];
+//  List imagesUrl = [];
+
+  List imagesUrl=["https://s3-us-west-2.amazonaws.com/appsdeveloperblog.com/images/cats/cat-1.jpg",
+      "https://s3-us-west-2.amazonaws.com/appsdeveloperblog.com/images/cats/cat-2.jpg",
+  "https://s3-us-west-2.amazonaws.com/appsdeveloperblog.com/images/cats/cat-3.jpg",
+  "https://s3-us-west-2.amazonaws.com/appsdeveloperblog.com/images/cats/cat-4.jpg",
+  "https://s3-us-west-2.amazonaws.com/appsdeveloperblog.com/images/cats/cat-5.jpg",
+  "https://s3-us-west-2.amazonaws.com/appsdeveloperblog.com/images/cats/cat-6.jpg"];
+
 
   @override
   void initState() {
     super.initState();
-    fetchDataFromApi();
+//    fetchDataFromApi();
   }
 
   Future<String> fetchDataFromApi() async {
     var url=Uri.https("s3-us-west-2.amazonaws.com", "/appsdeveloperblog.com/tutorials/files/cats.json");
     var jsonData = await http.get(url);
-//        "https://s3-us-west-2.amazonaws.com/appsdeveloperblog.com/tutorials/files/cats.json");
     var fetchData = jsonDecode(jsonData.body);
 
     setState(() {
@@ -50,7 +57,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text('List Of Images'),
+        title: Text('Katten'),
         centerTitle: true,
       ),
       body:
